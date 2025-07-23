@@ -7,10 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ActivityserviceApplication {
 
 	public static void main(String[] args) {
-		// Starting point of the Activity Service application
-		// code to print beep sound
-		System.out.print("\007"); // ASCII bell character
-		System.out.flush();
 
 		SpringApplication.run(ActivityserviceApplication.class, args);
 	}
