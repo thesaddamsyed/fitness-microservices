@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 
 @Document(collection = "activities")
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Activity {
