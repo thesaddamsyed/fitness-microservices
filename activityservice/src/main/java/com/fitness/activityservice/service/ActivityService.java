@@ -15,9 +15,16 @@ import lombok.RequiredArgsConstructor;
 public class ActivityService {
 
     private final ActivityRepository activityRepository;
+    private final UserValidationService userValidationService;
 
     // create activity
     public ActivityResponseDTO createActivity(ActivityRequestDTO activityRequestDTO) {
+
+        boolean isValidUser = userValidationService.validateUser(activityRequestDTO.getUserId());
+        if (!isValidUser) {
+            throw new RuntimeException("User not found with id: " + activityRequestDTO.getUserId());
+        }
+
         // Convert ActivityRequestDTO to Activity entity
         Activity activity = activityRepository.save(ActivityMapper.mapToEntity(activityRequestDTO));
         // Convert Activity entity to ActivityResponseDTO
