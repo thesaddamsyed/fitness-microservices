@@ -26,6 +26,16 @@
       "projectName": "eureka",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-AiserviceApplication<aiservice>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.fitness.aiservice.AiserviceApplication",
+      "projectName": "aiservice",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }
