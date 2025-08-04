@@ -5,16 +5,21 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UserValidationService {
     private final WebClient userservicewWebClient;
 
     public boolean validateUser(String userId) {
         try {
+            String url = "/api/users/" + userId + "/validate";
+            log.info("Calling user-service: {}", url);
+
             return userservicewWebClient.get()
-                    .uri("/api/users/{userId}/validate", userId)
+                    .uri(url)
                     .retrieve()
                     .bodyToMono(Boolean.class)
                     .block();
