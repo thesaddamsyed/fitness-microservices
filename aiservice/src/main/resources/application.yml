@@ -28,3 +28,8 @@ rabbitmq:
     name: fitness.queue
   routing:
     key: fitness.tracking
+
+gemini:
+  api:
+    url: "${GEMINI_API_URL}"
+    key: "${GEMINI_API_KEY}"
