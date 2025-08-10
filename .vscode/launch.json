@@ -40,6 +40,16 @@
         "Gemini_API_KEY": "AIzaSyAIH8FD62ZGUOkbN2hPhdj_H5CF6vJ9kY8",
         "Gemini_API_URL": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key="
       }
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-ConfigserverApplication<configserver>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.fitness.configserver.ConfigserverApplication",
+      "projectName": "configserver",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }
