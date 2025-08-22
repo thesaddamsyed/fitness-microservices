@@ -20,8 +20,25 @@ public class UserService {
 
     public UserResponse register(RegisterRequest request) {
 
+        if (repository.existsByEmail(request.getEmail())) {
+            User savedUser = repository.findByEmail(request.getEmail());
+            UserResponse userResponse = new UserResponse();
+            userResponse.setId(savedUser.getId().toString());
+            userResponse.setKeycloakId(savedUser.getKeycloakId());
+            userResponse.setEmail(savedUser.getEmail());
+            userResponse.setPassword(savedUser.getPassword());
+            userResponse.setFirstName(savedUser.getFirstName());
+            userResponse.setLastName(savedUser.getLastName());
+            userResponse.setCreatedAt(savedUser.getCreatedAt());
+            userResponse.setUpdatedAt(savedUser.getUpdatedAt());
+
+            return userResponse;
+
+        }
+
         User user = new User();
         user.setEmail(request.getEmail());
+        user.setKeycloakId(request.getKeycloakId());
         user.setPassword(request.getPassword());
         user.setFirstName(request.getFirstName());
         user.setLastName(request.getLastName());
@@ -30,6 +47,7 @@ public class UserService {
 
         UserResponse userResponse = new UserResponse();
         userResponse.setId(savedUser.getId().toString());
+        userResponse.setKeycloakId(savedUser.getKeycloakId());
         userResponse.setEmail(savedUser.getEmail());
         userResponse.setPassword(savedUser.getPassword());
         userResponse.setFirstName(savedUser.getFirstName());
@@ -48,6 +66,7 @@ public class UserService {
         return users.stream().map(user -> {
             UserResponse response = new UserResponse();
             response.setId(user.getId().toString());
+            response.setKeycloakId(user.getKeycloakId());
             response.setEmail(user.getEmail());
             response.setFirstName(user.getFirstName());
             response.setLastName(user.getLastName());
@@ -64,6 +83,7 @@ public class UserService {
         UserResponse userResponse = new UserResponse();
         userResponse.setId(user.getId().toString());
         userResponse.setEmail(user.getEmail());
+        userResponse.setKeycloakId(user.getKeycloakId());
         userResponse.setFirstName(user.getFirstName());
         userResponse.setLastName(user.getLastName());
         userResponse.setCreatedAt(user.getCreatedAt());
@@ -73,7 +93,7 @@ public class UserService {
     }
 
     public Boolean existsByUserId(String userid) {
-        return repository.existsById(UUID.fromString(userid));
+        return repository.existsByKeycloakId(userid);
     }
 
 }
