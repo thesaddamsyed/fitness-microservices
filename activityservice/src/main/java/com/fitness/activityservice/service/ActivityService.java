@@ -49,4 +49,12 @@ public class ActivityService {
         return ActivityMapper.mapToResponseDTO(activity);
     }
 
+    // get activities by userId
+    public java.util.List<ActivityResponseDTO> getUserActivities(String userId) {
+        java.util.List<Activity> activities = activityRepository.findByUserId(userId);
+        return activities.stream()
+                .map(ActivityMapper::mapToResponseDTO)
+                .collect(java.util.stream.Collectors.toList());
+    }
+
 }
