@@ -92,8 +92,8 @@ public class UserService {
         return userResponse;
     }
 
-    public Boolean existsByUserId(String userid) {
-        return repository.existsByKeycloakId(userid);
+    public Boolean existsByUserId(String userId) {
+        return repository.existsByKeycloakId(userId);
     }
 
 }
