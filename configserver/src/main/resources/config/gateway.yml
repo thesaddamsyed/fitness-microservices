@@ -1,6 +1,11 @@
 spring:
   application:
     name: gateway
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          jwk-set-uri: http://localhost:8181/realms/fitness-oauth2/protocol/openid-connect/certs
   cloud:
     gateway:
       server:
@@ -11,21 +16,21 @@ spring:
               predicates:
                 - Path=/api/users/**
               filters:
-                - StripPrefix=0 # keep full path
+                - StripPrefix=0
 
             - id: activity-service
               uri: lb://activity-service
               predicates:
                 - Path=/api/activities/**
               filters:
-                - StripPrefix=0 # keep full path
+                - StripPrefix=0
 
             - id: ai-service
               uri: lb://ai-service
               predicates:
                 - Path=/api/recommendations/**
               filters:
-                - StripPrefix=0 # keep full path
+                - StripPrefix=0
 
 server:
   port: 8080
@@ -34,7 +39,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-
-logging:
-  level:
-    org.springframework.cloud.gateway: DEBUG
+  instance:
+    prefer-ip-address: true
+    hostname: localhost

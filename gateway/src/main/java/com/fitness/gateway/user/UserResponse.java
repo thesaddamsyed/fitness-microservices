@@ -1,4 +1,4 @@
-package com.fitness.userservice.dto;
+package com.fitness.gateway.user;
 
 import java.time.LocalDateTime;
 
