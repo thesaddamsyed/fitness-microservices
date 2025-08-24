@@ -1,12 +1,12 @@
-# Fitness Microservices
+Fitness Microservices
 
 ## Overview
 
 This repository contains a backend implementation of a fitness platform using a microservices architecture. The core services currently include:
 
-- **User Service**: Handles user registration, authentication, and profile management.  
-- **Activity Service**: Records fitness activities and sends messages to the AI pipeline via RabbitMQ.  
-- **AI Service**: Listens to activity events and generates personalized recommendations using Gemini.AI.  
+- **User Service**: Handles user registration, authentication, and profile management.
+- **Activity Service**: Records fitness activities and sends messages to the AI pipeline via RabbitMQ.
+- **AI Service**: Listens to activity events and generates personalized recommendations using Gemini.AI.
 - **ChatGPT Service**: Provides conversational capabilities and support, integrated with AI-generated insights.
 
 Frontend development is pending—I’m focusing on the backend architecture for now. The plan is to add web and mobile clients soon, making this a full-stack fitness application.
@@ -60,3 +60,4 @@ The motivation is to build a scalable and decoupled system that separates concer
    ```sh
    git clone https://github.com/thesaddamsyed/fitness-microservices.git
    cd fitness-microservices
+   ```
