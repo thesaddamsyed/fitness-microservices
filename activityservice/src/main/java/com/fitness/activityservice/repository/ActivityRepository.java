@@ -6,4 +6,6 @@ import com.fitness.activityservice.model.Activity;
 
 public interface ActivityRepository extends MongoRepository<Activity, String> {
 
+    java.util.List<Activity> findByUserId(String userId);
+
 }

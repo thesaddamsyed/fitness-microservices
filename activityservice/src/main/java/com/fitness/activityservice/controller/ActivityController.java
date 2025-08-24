@@ -1,8 +1,12 @@
 package com.fitness.activityservice.controller;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,11 +24,18 @@ public class ActivityController {
     private ActivityService activityService;
 
     @PostMapping
-    public ResponseEntity<ActivityResponseDTO> createActivity(@RequestBody ActivityRequestDTO activityRequestDTO) {
+    public ResponseEntity<ActivityResponseDTO> createActivity(@RequestBody ActivityRequestDTO activityRequestDTO,
+            @RequestHeader("X-User-Id") String userId) {
+
+        if (userId != null) {
+            activityRequestDTO.setUserId(userId);
+        }
         ActivityResponseDTO response = activityService.createActivity(activityRequestDTO);
         return ResponseEntity.ok(response);
     }
 
-    // Additional methods can be added as needed
-
+    @GetMapping()
+    public ResponseEntity<List<ActivityResponseDTO>> getUserActivities(@RequestHeader("X-User-Id") String userId) {
+        return ResponseEntity.ok(activityService.getUserActivities(userId));
+    }
 }
