@@ -1,4 +1,4 @@
-# 🏃‍♂️ Fitness Microservices Platform
+# Fitness Microservices Platform
 
 A modern, scalable fitness tracking platform built with microservices architecture. This project combines the power of Spring Boot, AI-driven insights, and real-time activity tracking to create a comprehensive fitness experience.
 
@@ -6,7 +6,7 @@ A modern, scalable fitness tracking platform built with microservices architectu
 
 Think of this as your personal fitness companion that lives in the cloud. It's not just another workout tracker – it's a smart system that learns from your activities and provides personalized recommendations using AI. The beauty of the microservices approach is that each piece does one thing really well, making the whole system more reliable and easier to scale.
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 The platform is built around several core services that work together seamlessly:
 
@@ -17,13 +17,13 @@ The platform is built around several core services that work together seamlessly
 - **Service Discovery** - Eureka server that helps services find each other
 - **Frontend** - React-based web interface with Material-UI
 
-## 🚀 Why This Architecture Makes Sense
+## Why This Architecture Makes Sense
 
 I chose microservices because fitness apps tend to grow in unexpected ways. Maybe you start with basic tracking, then want to add social features, nutrition tracking, or integration with wearable devices. With microservices, you can evolve each piece independently without breaking the whole system.
 
 The asynchronous messaging with RabbitMQ is particularly clever here – when you log a workout, it gets processed in the background by the AI service. This means your app stays responsive even when the AI is crunching numbers to give you personalized advice.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 
@@ -51,7 +51,7 @@ The asynchronous messaging with RabbitMQ is particularly clever here – when yo
 - **Eureka** - Service discovery and registration
 - **Spring Cloud Gateway** - API routing and load balancing
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 fitness-microservice/
@@ -64,7 +64,7 @@ fitness-microservice/
 └── fitness-frontend/    # React web application
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -156,7 +156,7 @@ Once everything is running:
 - **Frontend**: http://localhost:5173
 - **RabbitMQ Management**: http://localhost:15672 (guest/guest)
 
-## 🔧 Configuration
+## Configuration
 
 Each service has its own `application.yml` with environment-specific settings. The config server centralizes common configurations, making it easy to manage across environments.
 
@@ -167,7 +167,7 @@ Key configuration areas:
 - Service discovery endpoints
 - AI service API keys
 
-## 🧪 Testing
+## Testing
 
 The project includes comprehensive test coverage:
 
@@ -181,7 +181,7 @@ Run tests with:
 mvn test
 ```
 
-## 🚢 Deployment
+## Deployment
 
 ### Docker Compose
 
@@ -200,13 +200,13 @@ mvn clean package
 docker build -t fitness-service .
 ```
 
-## 🔍 Monitoring & Observability
+## Monitoring & Observability
 
 - **Spring Boot Actuator** - Health checks and metrics
 - **Eureka Dashboard** - Service status and discovery
 - **RabbitMQ Management** - Message queue monitoring
 
-## 🤝 Contributing
+## Contributing
 
 This is a learning project, so contributions are welcome! Some areas that could use work:
 
@@ -216,7 +216,7 @@ This is a learning project, so contributions are welcome! Some areas that could 
 - Additional AI features
 - Mobile app development
 
-## 📚 What I Learned Building This
+## What I Learned Building This
 
 Building this project taught me a lot about:
 
@@ -225,7 +225,7 @@ Building this project taught me a lot about:
 - **Configuration management** - Centralized config is a game-changer for microservices
 - **Service discovery** - Eureka makes the distributed system feel cohesive
 
-## 🎯 Next Steps
+## Next Steps
 
 The platform is solid, but there's always room to grow:
 
@@ -235,7 +235,7 @@ The platform is solid, but there's always room to grow:
 - **Wearable integration** - Fitbit, Apple Watch, Garmin
 - **Nutrition tracking** - complete health picture
 
-## 📞 Getting Help
+## Getting Help
 
 If you run into issues:
 
@@ -246,4 +246,4 @@ If you run into issues:
 
 ---
 
-_Built with ❤️ and lots of ☕. This project represents my journey into microservices architecture and modern Java development._
+This project represents my journey into microservices architecture and modern Java development.\_
